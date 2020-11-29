@@ -1,0 +1,20 @@
+/lib/systemd/system/airdcpp.service
+
+[Unit]
+Description=airdcpp
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/root/airdcpp-webclient/airdcppd
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl start airdcpp.service
+sudo systemctl enable airdcpp.service
